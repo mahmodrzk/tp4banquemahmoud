@@ -9,7 +9,7 @@ import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletContext;
-import ma.emsi.tp4banquemahmoud.service.GestionnaireCompte;
+import ma.emsi.tpbanquemahmoud.service.GestionnaireCompte;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 
 /**
