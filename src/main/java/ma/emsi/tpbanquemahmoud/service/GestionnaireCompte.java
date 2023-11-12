@@ -38,9 +38,6 @@ import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 @ApplicationScoped
 public class GestionnaireCompte {
 
-    /**
-     * Creates a new instance of GestionnaireCompte
-     */
     public GestionnaireCompte() {
     }
 

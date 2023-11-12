@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Ce fichier représente la classe CompteBancaire qui modélise un compte bancaire avec des propriétés telles que l'identifiant, le nom du titulaire et le solde.
+ * Cette classe fournit des méthodes pour déposer et retirer de l'argent, ainsi que des méthodes de base pour la gestion du compte.
  */
 package ma.emsi.tpbanquemahmoud.entity;
 
@@ -12,10 +12,6 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import java.io.Serializable;
 
-/*
- * Cette classe représente un compte bancaire avec des propriétés telles que l'identifiant, le nom du titulaire et le solde.
- * Elle fournit des méthodes pour déposer et retirer de l'argent, ainsi que des méthodes de base pour la gestion du compte.
- */
 @NamedQueries({
     @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM CompteBancaire c"),
     @NamedQuery(name = "CompteBancaire.count", query = "SELECT COUNT(c) FROM CompteBancaire c")
@@ -81,7 +77,6 @@ public class CompteBancaire implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof CompteBancaire)) {
             return false;
         }
@@ -96,5 +91,4 @@ public class CompteBancaire implements Serializable {
     public String toString() {
         return "ma.emsi.tpbanquemahmoud.entity.CompteBancaire[ id=" + id + " ]";
     }
-
 }

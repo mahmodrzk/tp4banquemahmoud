@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Cette classe "Mouvement" est utilisée pour gérer les mouvements (dépôt ou retrait) sur un compte bancaire.
+ * Elle permet de valider les opérations en fonction du type de mouvement (dépôt ou retrait) et du solde du compte.
  */
 package ma.emsi.tpbanquemahmoud.jsf;
 
@@ -17,10 +17,6 @@ import ma.emsi.tbbanquemahmoud.util.Util;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 import ma.emsi.tpbanquemahmoud.service.GestionnaireCompte;
 
-/**
- *
- * @author ADMIN
- */
 @Named(value = "mouvement")
 @ViewScoped
 public class Mouvement implements Serializable {
@@ -65,23 +61,11 @@ public class Mouvement implements Serializable {
         compte = gestionnaireCompte.getCompte(id);
     }
 
-    /**
-     * Méthode validatrice pour le montant du mouvement. Remarque : La méthode
-     * doit toujours avoir cette signature.
-     *
-     * @param fc
-     * @param composant le composant JSF dans lequel on valide.
-     * @param valeur valeur à valider (le montant pour ce cas)
-     */
     public void validateSolde(FacesContext fc, UIComponent composant, Object valeur) {
         UIInput composantTypeMouvement = (UIInput) composant.findComponent("typeMouvement");
-        // Il faut savoir si c'est un retrait ou un dépôt.
-        // Sans entrer dans les détails, il faut parfois utiliser
-        // getSubmittedValue() à la place de getLocalValue.
-        // typeMouvement n'est pas encore mis tant que la validation n'est pas finie.
+
         String valeurTypeMouvement = (String) composantTypeMouvement.getLocalValue();
         if (valeurTypeMouvement == null) {
-            // Pour le cas où l'utilisateur a soumis le formulaire sans indiquer le type du mouvement
             return;
         }
         if (valeurTypeMouvement.equals("retrait")) {
@@ -105,5 +89,4 @@ public class Mouvement implements Serializable {
         Util.addFlashInfoMessage("Mouvement enregistré sur compte de " + compte.getNom());
         return "listeComptes?faces-redirect=true";
     }
-
 }

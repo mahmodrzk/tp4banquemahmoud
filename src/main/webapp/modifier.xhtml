@@ -11,28 +11,35 @@
 
             <ui:define name="metadata">
                 <f:metadata>  
+                    <!-- Configuration des paramètres de vue -->
                     <f:viewParam name="id" value="#{modifier.id}"  
                                  required="true"/>  
+                    <!-- Appel d'une action lors de la vue -->
                     <f:viewAction action="#{modifier.loadCompte}"/>  
                 </f:metadata>
             </ui:define>
 
             <ui:define name="top">
+                <!-- En-tête de la page -->
                 Modifier le nom du compte
             </ui:define>
 
             <ui:define name="content">
+                <!-- Contenu de la page -->
                 <h1>Modifier le nom du compte de #{modifier.nom}</h1>
 
                 <h:form>
-                    <h:panelGrid columns="3">
-                        Nom du compte :
-                        <h:inputText id="nom" value="#{modifier.nom}"
-                                     required="true"/>
-                        <h:message for="nom"/>
-                    </h:panelGrid>
+                    <!-- Formulaire -->
+                    Nom du compte :
+                    <!-- Champ de saisie du nom du compte -->
+                    <h:inputText id="nom" value="#{modifier.nom}"
+                                 required="true"/>
+                    <h:message for="nom"/>
+                    <!-- Affichage des messages d'erreur liés au champ "nom" -->
+
                     <h:commandButton action="#{modifier.enregistrerModification()}"
                                      value="Enregistrer la modification"/>
+                    <!-- Bouton pour enregistrer la modification -->
                 </h:form>
             </ui:define>
 

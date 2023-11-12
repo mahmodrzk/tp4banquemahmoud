@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Cette classe "Modifier" est utilisée pour gérer la modification des informations d'un compte bancaire.
+ * Elle permet de charger un compte à partir de son ID, de modifier le nom du compte, puis d'enregistrer la modification.
  */
 package ma.emsi.tpbanquemahmoud.jsf;
 
@@ -12,10 +12,6 @@ import ma.emsi.tbbanquemahmoud.util.Util;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 import ma.emsi.tpbanquemahmoud.service.GestionnaireCompte;
 
-/**
- *
- * @author ADMIN
- */
 @Named(value = "modifier")
 @ViewScoped
 public class Modifier implements Serializable {
@@ -57,5 +53,4 @@ public class Modifier implements Serializable {
         gestionnaireCompte.update(compte);
         return "listeComptes?faces-redirect=true";
     }
-
 }

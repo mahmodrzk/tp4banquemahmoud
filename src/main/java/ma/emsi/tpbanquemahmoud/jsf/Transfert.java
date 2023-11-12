@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Cette classe "Transfert" permet de gérer le transfert d'argent entre deux comptes bancaires.
+ * Elle vérifie la validité des opérations, telles que l'existence des comptes source et destination,
+ * ainsi que le solde du compte source, avant de procéder au transfert.
  */
 package ma.emsi.tpbanquemahmoud.jsf;
 
