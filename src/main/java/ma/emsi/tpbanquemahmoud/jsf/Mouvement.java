@@ -17,6 +17,12 @@ import ma.emsi.tbbanquemahmoud.util.Util;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 import ma.emsi.tpbanquemahmoud.service.GestionnaireCompte;
 
+/**
+ * La classe Mouvement est utilisée pour gérer les mouvements (dépôt ou retrait) sur un compte bancaire.
+ * Elle permet de valider les opérations en fonction du type de mouvement (dépôt ou retrait) et du solde du compte.
+ * 
+ * @author ADMIN
+ */
 @Named(value = "mouvement")
 @ViewScoped
 public class Mouvement implements Serializable {
@@ -29,38 +35,85 @@ public class Mouvement implements Serializable {
     @Inject
     private GestionnaireCompte gestionnaireCompte;
 
+    /**
+     * Obtient le montant du mouvement.
+     * 
+     * @return Le montant du mouvement.
+     */
     public int getMontant() {
         return montant;
     }
 
+    /**
+     * Modifie le montant du mouvement.
+     * 
+     * @param montant Le nouveau montant du mouvement.
+     */
     public void setMontant(int montant) {
         this.montant = montant;
     }
 
+    /**
+     * Obtient le type de mouvement (ajout ou retrait).
+     * 
+     * @return Le type de mouvement.
+     */
     public String getTypeMouvement() {
         return typeMouvement;
     }
 
+    /**
+     * Modifie le type de mouvement (ajout ou retrait).
+     * 
+     * @param typeMouvement Le nouveau type de mouvement.
+     */
     public void setTypeMouvement(String typeMouvement) {
         this.typeMouvement = typeMouvement;
     }
 
+    /**
+     * Obtient l'identifiant du compte.
+     * 
+     * @return L'identifiant du compte.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Modifie l'identifiant du compte.
+     * 
+     * @param id Le nouvel identifiant du compte.
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Obtient le compte bancaire associé au mouvement.
+     * 
+     * @return Le compte bancaire.
+     */
     public CompteBancaire getCompte() {
         return compte;
     }
 
+    /**
+     * Charge le compte bancaire associé au mouvement.
+     */
     public void loadCompte() {
         compte = gestionnaireCompte.getCompte(id);
     }
 
+    /**
+     * Valide le solde du compte en fonction du type de mouvement.
+     * Si c'est un retrait, vérifie que le retrait est inférieur au solde du compte.
+     * 
+     * @param fc Le contexte Faces.
+     * @param composant Le composant associé.
+     * @param valeur La valeur du mouvement.
+     * @throws ValidatorException Si la validation échoue.
+     */
     public void validateSolde(FacesContext fc, UIComponent composant, Object valeur) {
         UIInput composantTypeMouvement = (UIInput) composant.findComponent("typeMouvement");
 
@@ -71,15 +124,19 @@ public class Mouvement implements Serializable {
         if (valeurTypeMouvement.equals("retrait")) {
             int retrait = (int) valeur;
             if (compte.getSolde() < retrait) {
-                FacesMessage message
-                        = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                "Le retrait doit être inférieur au solde du compte",
-                                "Le retrait doit être inférieur au solde du compte");
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                        "Le retrait doit être inférieur au solde du compte",
+                        "Le retrait doit être inférieur au solde du compte");
                 throw new ValidatorException(message);
             }
         }
     }
 
+    /**
+     * Enregistre le mouvement (ajout ou retrait) sur le compte.
+     * 
+     * @return La redirection vers la page "listeComptes" après l'enregistrement du mouvement.
+     */
     public String enregistrerMouvement() {
         if (typeMouvement.equals("ajout")) {
             gestionnaireCompte.deposer(compte, montant);

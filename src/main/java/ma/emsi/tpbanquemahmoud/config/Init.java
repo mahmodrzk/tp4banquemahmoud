@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Cliquez sur nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt pour modifier cette licence
+ * Cliquez sur nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java pour modifier ce modèle
  */
 package ma.emsi.tpbanquemahmoud.config;
 
@@ -13,7 +13,9 @@ import ma.emsi.tpbanquemahmoud.service.GestionnaireCompte;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 
 /**
- *
+ * La classe Init est utilisée pour initialiser des données au démarrage de l'application.
+ * Elle observe le contexte d'application pour déclencher l'initialisation.
+ * 
  * @author ADMIN
  */
 public class Init {
@@ -21,6 +23,11 @@ public class Init {
     @Inject
     private GestionnaireCompte gestionnaireCompte;
 
+    /**
+     * Initialise les données au démarrage de l'application si aucun compte n'existe.
+     * 
+     * @param context Le contexte d'application.
+     */
     public void init(
             @Observes
             @Initialized(ApplicationScoped.class) ServletContext context) {

@@ -5,7 +5,7 @@
 package ma.emsi.tpbanquemahmoud.jsf;
 
 import ma.emsi.tbbanquemahmoud.util.Util;
-import jakarta.enterprise.context.Dependent;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import jakarta.inject.Inject;
 import java.io.Serializable;
@@ -13,10 +13,18 @@ import java.util.List;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 import ma.emsi.tpbanquemahmoud.service.GestionnaireCompte;
 
+/**
+ *
+ * @author ADMIN
+ */
+
 @Named(value = "listeComptes")
-@Dependent
+@ViewScoped
 public class ListeComptes implements Serializable {
 
+    /**
+     * Creates a new instance of ListeComptes
+     */
     public ListeComptes() {
     }
 
@@ -25,6 +33,12 @@ public class ListeComptes implements Serializable {
     @Inject
     private GestionnaireCompte gc;
 
+    /**
+     *
+     * Retourne la liste des comptes pour affichage dans une DataTable.
+     *
+     * @return
+     */
     public List<CompteBancaire> getAllComptes() {
         if (listeComptes == null) {
             listeComptes = gc.getAllComptes();
@@ -37,4 +51,5 @@ public class ListeComptes implements Serializable {
         Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
         return "listeComptes?faces-redirect=true";
     }
+
 }

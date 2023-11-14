@@ -1,11 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="jakarta.faces.html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="jakarta.faces.core">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <body>
         <!-- En-tête de la page -->
 
@@ -55,7 +50,7 @@
                                 <h:outputText value="Opérations"/>
                             </f:facet>
                             <h:commandLink action="#{listeComptes.supprimerCompte(item)}" title="Supprimer le compte de #{item.nom}">
-                                <h:graphicImage name="C:\Users\ADMIN\Downloads\401036.png"/>
+                                <h:graphicImage name="images/del.png"/>
                             </h:commandLink>
                             <!-- CommandLink pour supprimer un compte -->
                             <h:link outcome="modifier?id=#{item.id}" value="Modifier"/>
@@ -70,6 +65,7 @@
             </ui:define>
             <!-- Fin de la définition du contenu de la zone "content" du modèle -->
         </ui:composition>
-
+        <!-- Fin de l'utilisation du modèle de page -->
+        
     </body>
 </html>
