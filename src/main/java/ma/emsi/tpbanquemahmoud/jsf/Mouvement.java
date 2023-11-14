@@ -35,65 +35,37 @@ public class Mouvement implements Serializable {
     @Inject
     private GestionnaireCompte gestionnaireCompte;
 
-    /**
-     * Obtient le montant du mouvement.
-     * 
-     * @return Le montant du mouvement.
-     */
+   
     public int getMontant() {
         return montant;
     }
 
-    /**
-     * Modifie le montant du mouvement.
-     * 
-     * @param montant Le nouveau montant du mouvement.
-     */
+ 
     public void setMontant(int montant) {
         this.montant = montant;
     }
 
-    /**
-     * Obtient le type de mouvement (ajout ou retrait).
-     * 
-     * @return Le type de mouvement.
-     */
+
     public String getTypeMouvement() {
         return typeMouvement;
     }
 
-    /**
-     * Modifie le type de mouvement (ajout ou retrait).
-     * 
-     * @param typeMouvement Le nouveau type de mouvement.
-     */
+
     public void setTypeMouvement(String typeMouvement) {
         this.typeMouvement = typeMouvement;
     }
 
-    /**
-     * Obtient l'identifiant du compte.
-     * 
-     * @return L'identifiant du compte.
-     */
+
     public Long getId() {
         return id;
     }
 
-    /**
-     * Modifie l'identifiant du compte.
-     * 
-     * @param id Le nouvel identifiant du compte.
-     */
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * Obtient le compte bancaire associé au mouvement.
-     * 
-     * @return Le compte bancaire.
-     */
+  
     public CompteBancaire getCompte() {
         return compte;
     }

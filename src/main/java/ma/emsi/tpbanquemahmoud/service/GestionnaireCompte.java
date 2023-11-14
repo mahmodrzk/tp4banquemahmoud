@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Cette classe GestionnaireCompte est responsable de la gestion des opérations sur les comptes bancaires.
+ * Elle utilise l'EntityManager pour interagir avec la base de données et effectue des opérations telles que la création, la mise à jour, et la suppression de comptes.
+ * Les méthodes de cette classe sont transactionnelles, assurant l'intégrité des données lors des opérations.
+ * Le DataSourceDefinition spécifie les paramètres de la source de données pour la connexion à la base de données MySQL.
  */
 package ma.emsi.tpbanquemahmoud.service;
 
@@ -16,8 +18,10 @@ import java.util.List;
 import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
 
 /**
- *
- * @author ADMIN
+ * Cette classe GestionnaireCompte est responsable de la gestion des opérations sur les comptes bancaires.
+ * Elle utilise l'EntityManager pour interagir avec la base de données et effectue des opérations telles que la création, la mise à jour, et la suppression de comptes.
+ * Les méthodes de cette classe sont transactionnelles, assurant l'intégrité des données lors des opérations.
+ * Le DataSourceDefinition spécifie les paramètres de la source de données pour la connexion à la base de données MySQL.
  */
 @DataSourceDefinition(
         className = "com.mysql.cj.jdbc.MysqlDataSource",
@@ -33,7 +37,6 @@ import ma.emsi.tpbanquemahmoud.entity.CompteBancaire;
             "driverClass=com.mysql.cj.jdbc.Driver"
         }
 )
-
 @Named(value = "gestionnaireCompte")
 @ApplicationScoped
 public class GestionnaireCompte {

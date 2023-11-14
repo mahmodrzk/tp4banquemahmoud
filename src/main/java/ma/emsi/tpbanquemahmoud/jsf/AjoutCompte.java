@@ -31,44 +31,26 @@ public class AjoutCompte implements Serializable {
     @Inject
     private GestionnaireCompte gc;
 
-    /**
-     * Constructeur par défaut de la classe AjoutCompte.
-     */
+   
     public AjoutCompte() {
     }
 
-    /**
-     * Obtient le nom saisi pour le nouveau compte.
-     * 
-     * @return Le nom du nouveau compte.
-     */
+   
     public String getNom() {
         return nom;
     }
 
-    /**
-     * Modifie le nom saisi pour le nouveau compte.
-     * 
-     * @param nom Le nouveau nom du compte.
-     */
+   
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * Obtient le montant initial saisi pour le nouveau compte.
-     * 
-     * @return Le montant initial du nouveau compte.
-     */
+    
     public int getMontant() {
         return montant;
     }
 
-    /**
-     * Modifie le montant initial saisi pour le nouveau compte.
-     * 
-     * @param montant Le montant initial du compte.
-     */
+   
     public void setMontant(int montant) {
         this.montant = montant;
     }
@@ -77,7 +59,6 @@ public class AjoutCompte implements Serializable {
      * Méthode pour ajouter un nouveau compte en utilisant le GestionnaireCompte.
      * Elle crée un nouveau compte avec le nom et le montant initial saisis.
      * 
-     * @return La redirection vers la page "listeComptes" après l'ajout du compte.
      */
     @Transactional
     public String ajouter() {

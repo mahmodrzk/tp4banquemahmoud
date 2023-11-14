@@ -29,45 +29,27 @@ public class Modifier implements Serializable {
     @Inject
     private GestionnaireCompte gestionnaireCompte;
 
-    /**
-     * Obtient l'identifiant du compte.
-     * 
-     * @return L'identifiant du compte.
-     */
+    
     public Long getId() {
         return id;
     }
 
-    /**
-     * Modifie l'identifiant du compte.
-     * 
-     * @param id Le nouvel identifiant du compte.
-     */
+    
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * Obtient le nom du compte.
-     * 
-     * @return Le nom du compte.
-     */
+    
     public String getNom() {
         return nom;
     }
 
-    /**
-     * Modifie le nom du compte.
-     * 
-     * @param nom Le nouveau nom du compte.
-     */
+  
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * Obtient le compte bancaire à partir de son identifiant.
-     */
+  
     public CompteBancaire getCompte() {
         return compte;
     }

@@ -20,7 +20,6 @@
                         <!-- Tableau de données PrimeFaces pour afficher la liste des comptes -->
 
                         <p:column>
-                            <!-- Colonne pour l'ID -->
                             <f:facet name="header">
                                 <h:outputText value="ID"/>
                             </f:facet>
@@ -29,7 +28,6 @@
                         </p:column>
 
                         <p:column sortBy="#{item.nom}">
-                            <!-- Colonne pour le nom -->
                             <f:facet name="header">
                                 <h:outputText value="Nom"/>
                             </f:facet>
@@ -37,7 +35,6 @@
                         </p:column>
 
                         <p:column sortBy="#{item.solde}">
-                            <!-- Colonne pour le solde -->
                             <f:facet name="header">
                                 <h:outputText value="Solde"/>
                             </f:facet>
@@ -45,27 +42,20 @@
                         </p:column>
 
                         <p:column>
-                            <!-- Colonne pour les opérations -->
                             <f:facet name="header">
                                 <h:outputText value="Opérations"/>
                             </f:facet>
                             <h:commandLink action="#{listeComptes.supprimerCompte(item)}" title="Supprimer le compte de #{item.nom}">
                                 <h:graphicImage name="images/del.png"/>
                             </h:commandLink>
-                            <!-- CommandLink pour supprimer un compte -->
                             <h:link outcome="modifier?id=#{item.id}" value="Modifier"/>
-                            <!-- Lien pour modifier un compte en utilisant l'ID du compte -->
                         </p:column>
                     </p:dataTable>
                 </h:form>
-                <!-- Fin du formulaire -->
 
                 <h:messages/>
-                <!-- Affichage des messages globaux (non liés à un champ spécifique) -->
             </ui:define>
-            <!-- Fin de la définition du contenu de la zone "content" du modèle -->
         </ui:composition>
-        <!-- Fin de l'utilisation du modèle de page -->
         
     </body>
 </html>
